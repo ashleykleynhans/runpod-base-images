@@ -7,7 +7,7 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "1.5.0"
+    default = "1.6.0"
 }
 
 variable "RUNPODCTL_VERSION" {
@@ -18,11 +18,13 @@ group "default" {
     targets = [
         "cu118-torch200",
         "cu118-torch212",
-        "cu118-torch222",
-        "cu118-torch230",
+# TODO: Remove these eventually if no longer needed
+#        "cu118-torch222",
+#        "cu118-torch230",
         "cu121-torch221",
         "cu121-torch222",
         "cu121-torch230"
+# TODO: Add back when xformers supports it
 #        "cu121-torch231"
     ]
 }
