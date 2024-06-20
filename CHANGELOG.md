@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2024-06-20
+
+- Added `cu121-torch222` target for CUDA 12.1 + torch 2.2.2.
+
 ## 2024-06-15
 
 - Added Pytorch test on container startup.
