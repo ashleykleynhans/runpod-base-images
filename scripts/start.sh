@@ -169,6 +169,14 @@ start_jupyter() {
     echo "Jupyter Lab started"
 }
 
+# Start code-server
+start_code_server() {
+    echo "Starting code-server..."
+    mkdir -p /workspace/logs
+    nohup code-server --bind-addr 0.0.0.0:7777 --auth none --disable-telemetry /workspace &> /workspace/logs/code-server.log &
+    echo "code-server started"
+}
+
 start_runpod_uploader() {
     echo "Starting RunPod Uploader..."
     nohup /usr/local/bin/runpod-uploader &> /workspace/logs/runpod-uploader.log &
@@ -254,8 +262,9 @@ start_nginx
 setup_ssh
 start_cron
 start_jupyter
-check_cuda_version
-test_pytorch_cuda
+start_code_server
+#check_cuda_version
+#test_pytorch_cuda
 start_runpod_uploader
 execute_script "/pre_start.sh" "Running pre-start script..."
 configure_filezilla

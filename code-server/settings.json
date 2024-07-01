@@ -1,0 +1,18 @@
+{
+    "workbench.colorTheme": "Default Dark Modern",
+    "workbench.startupEditor": "none",
+    "workbench.enableExperiments": false,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "security.workspace.trust.enabled": false,
+    "update.mode": "manual",
+    "extensions.autoUpdate": false,
+    "python.showStartPage": false,
+    "jupyter.experiments.enabled": false,
+    "jupyter.askForKernelRestart": false,
+    "jupyter.askForKernelSource": false,
+    "jupyter.alwaysTrustNotebooks": true,
+    "extensions.ignoreRecommendations": true,
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 1000
+}

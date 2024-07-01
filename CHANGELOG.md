@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2024-07-01
+
+- Added `cu121-torch212` target for CUDA 12.1 + torch 2.1.2.
+- Added code-server.
+- Disabled CUDA and Pytorch tests.
+
 ## 2024-06-20
 
 - Added `cu121-torch222` target for CUDA 12.1 + torch 2.2.2.

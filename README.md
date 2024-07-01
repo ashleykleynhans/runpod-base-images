@@ -70,6 +70,7 @@
 ## Pre-installed applications
 
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
+* [code-server](https://github.com/coder/code-server)
 * [runpodctl](https://github.com/runpod/runpodctl)
 * [OhMyRunPod](https://github.com/kodxana/OhMyRunPod)
 * [RunPod File Uploader](https://github.com/kodxana/RunPod-FilleUploader)
@@ -97,6 +98,13 @@ docker buildx bake -f docker-bake.hcl --push
 REGISTRY=ghcr.io REGISTRY_USER=my_gh_user RELEASE=x.y.z docker buildx bake \
     -f docker-bake.hcl --push cu118-torch212
 ```
+
+## Acknowledgements
+
+A special word of thanks to [Madiator2011](https://github.com/kodxana) for advise
+and suggestions on improving these images, as well as all of the code for the
+code-server which was borrowed from his [madiator-docker-runpod](
+https://github.com/kodxana/madiator-docker-runpod) GitHub repository.
 
 ## Community and Contributing
 

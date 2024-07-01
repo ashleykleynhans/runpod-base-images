@@ -31,6 +31,7 @@ apt install -y --no-install-recommends \
     psmisc \
     rsync \
     vim \
+    nano \
     zip \
     unzip \
     p7zip-full \
