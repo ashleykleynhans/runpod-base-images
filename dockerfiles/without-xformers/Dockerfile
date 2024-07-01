@@ -28,7 +28,7 @@ FROM base as setup
 ARG RUNPODCTL_VERSION
 ENV RUNPODCTL_VERSION=${RUNPODCTL_VERSION}
 COPY ../../code-server/vsix/*.vsix /tmp/
-COPY settings.json /root/.local/share/code-server/User/settings.json
+COPY ../../code-server/settings.json /root/.local/share/code-server/User/settings.json
 COPY --chmod=755 ../../build/apps.sh /apps.sh
 RUN /apps.sh && rm /apps.sh
 
