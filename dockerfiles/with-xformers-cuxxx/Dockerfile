@@ -1,6 +1,6 @@
 # Stage 1: Base
 ARG BASE_IMAGE
-FROM ${BASE_IMAGE} as base
+FROM ${BASE_IMAGE} AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 ENV DEBIAN_FRONTEND=noninteractive \
@@ -24,7 +24,7 @@ RUN pip3 install --no-cache-dir torch==${TORCH_VERSION} torchvision torchaudio -
     pip3 install --no-cache-dir xformers==${XFORMERS_VERSION} --index-url ${INDEX_URL}
 
 # Stage 2: Install applications
-FROM base as setup
+FROM base AS setup
 
 # Install apps
 ARG RUNPODCTL_VERSION
