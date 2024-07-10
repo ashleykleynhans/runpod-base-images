@@ -165,7 +165,7 @@ target "cu121-torch231" {
         RELEASE = "${RELEASE}"
         INDEX_URL = "https://download.pytorch.org/whl/cu121"
         TORCH_VERSION = "2.3.1+cu121"
-        XFORMERS_VERSION = "0.0.26.post1"
+        XFORMERS_VERSION = "0.0.27"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]

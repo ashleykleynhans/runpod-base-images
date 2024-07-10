@@ -64,7 +64,7 @@
 - CUDA 12.1
 - Python 3.10.12
 - Torch 2.3.1
-- xformers 0.0.26.post1
+- xformers 0.0.27
 
 
 ## Pre-installed applications
