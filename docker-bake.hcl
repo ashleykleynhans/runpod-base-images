@@ -7,7 +7,7 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "1.7.0"
+    default = "1.8.0"
 }
 
 variable "RUNPODCTL_VERSION" {
@@ -24,9 +24,8 @@ group "default" {
         "cu121-torch212",
         "cu121-torch221",
         "cu121-torch222",
-        "cu121-torch230"
-# TODO: Add back when xformers supports it
-#        "cu121-torch231"
+        "cu121-torch230",
+        "cu121-torch231"
     ]
 }
 
@@ -157,18 +156,18 @@ target "cu121-torch230" {
     annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
 }
 
-#target "cu121-torch231" {
-#    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
-#    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-cuda12.1.1-torch2.3.1"]
-#    args = {
-#        BASE_IMAGE = "nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04"
-#        REQUIRED_CUDA_VERSION = "12.1"
-#        RELEASE = "${RELEASE}"
-#        INDEX_URL = "https://download.pytorch.org/whl/cu121"
-#        TORCH_VERSION = "2.3.1+cu121"
-#        XFORMERS_VERSION = "0.0.26.post1"
-#        RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
-#    }
-#    platforms = ["linux/amd64"]
-#    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
-#}
+target "cu121-torch231" {
+    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-cuda12.1.1-torch2.3.1"]
+    args = {
+        BASE_IMAGE = "nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.1"
+        RELEASE = "${RELEASE}"
+        INDEX_URL = "https://download.pytorch.org/whl/cu121"
+        TORCH_VERSION = "2.3.1+cu121"
+        XFORMERS_VERSION = "0.0.26.post1"
+        RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}

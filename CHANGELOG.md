@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2024-07-10
+
+- Added `cu121-torch231` target for CUDA 12.1 + torch 2.3.1.
+
 ## 2024-07-01
 
 - Added `cu121-torch212` target for CUDA 12.1 + torch 2.1.2.
@@ -17,10 +21,6 @@
 ## 2024-06-14
 
 - Added CUDA version checker to the container start script.
-
-## 2024-06-06
-
-- Added `cu121-torch231` target for CUDA 12.1 + torch 2.3.1.
 
 ## 2024-05-20
 
