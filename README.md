@@ -2,37 +2,13 @@
 
 ## Target Images
 
-### cu118-torch200
+### cu121-torch212
 
 - Ubuntu 22.04 LTS
-- CUDA 11.8
-- Python 3.10.12
-- Torch 2.0.0
-- xformers 0.0.19
-
-### cu118-torch212
-
-- Ubuntu 22.04 LTS
-- CUDA 11.8
+- CUDA 12.1
 - Python 3.10.12
 - Torch 2.1.2
 - xformers 0.0.23.post1
-
-### cu118-torch222
-
-- Ubuntu 22.04 LTS
-- CUDA 11.8
-- Python 3.10.12
-- Torch 2.2.2
-- xformers 0.0.25.post1
-
-### cu118-torch230
-
-- Ubuntu 22.04 LTS
-- CUDA 11.8
-- Python 3.10.12
-- Torch 2.3.0
-- xformers 0.0.26.post1
 
 ### cu121-torch221
 
@@ -65,7 +41,6 @@
 - Python 3.10.12
 - Torch 2.3.1
 - xformers 0.0.27
-
 
 ## Pre-installed applications
 

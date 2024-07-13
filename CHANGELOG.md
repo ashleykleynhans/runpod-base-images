@@ -1,5 +1,12 @@
 # CHANGELOG
 
+## 2024-07-13
+
+- Removed `cu118-torch200` target.
+- Removed `cu118-torch212` target.
+- Removed `cu118-torch222` target.
+- Removed `cu118-torch230` target.
+
 ## 2024-07-10
 
 - Added `cu121-torch231` target for CUDA 12.1 + torch 2.3.1.
