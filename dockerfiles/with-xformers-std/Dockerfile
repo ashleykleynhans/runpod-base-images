@@ -9,6 +9,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
     SHELL=/bin/bash
 
 # Install Ubuntu packages
+ARG PYTHON_VERSION
 COPY --chmod=755 ../../build/packages.sh /packages.sh
 RUN /packages.sh && rm /packages.sh
 

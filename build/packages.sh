@@ -4,10 +4,7 @@ apt -y upgrade
 apt install -y --no-install-recommends \
     build-essential \
     software-properties-common \
-    python3.10-venv \
     python3-pip \
-    python3-tk \
-    python3-dev \
     nodejs \
     npm \
     bash \
@@ -48,6 +45,25 @@ apt install -y --no-install-recommends \
     libtcmalloc-minimal4 \
     apt-transport-https \
     ca-certificates
+
+if [ -n "${PYTHON_VERSION}" ]; then
+    # Install Python from deadsnakes PPA
+    add-apt-repository ppa:deadsnakes/ppa
+    apt install -y --no-install-recommends \
+        "python${PYTHON_VERSION}" \
+        "python${PYTHON_VERSION}-dev" \
+        "python${PYTHON_VERSION}-venv" \
+        "python${PYTHON_VERSION}-tk"
+
+    # Link Python
+    ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python
+    rm /usr/bin/python3
+    ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python3
+
+    # Upgrade pip
+    pip3 install --upgrade --no-cache-dir pip
+fi
+
 update-ca-certificates
 apt clean
 rm -rf /var/lib/apt/lists/*

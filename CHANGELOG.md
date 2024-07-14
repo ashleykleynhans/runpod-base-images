@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2024-07-14
+
+- Added support for multiple Python versions.
+- Renamed targets to include Python version.
+- Added `py311-cu121-torch231` target for Python 3.11 + CUDA 12.1 + torch 2.3.1.
+
 ## 2024-07-13
 
 - Removed `cu118-torch200` target.
