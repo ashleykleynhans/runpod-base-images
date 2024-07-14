@@ -13,9 +13,6 @@ ARG PYTHON_VERSION
 COPY --chmod=755 ../../build/packages.sh /packages.sh
 RUN /packages.sh && rm /packages.sh
 
-# Set Python
-RUN ln -s /usr/bin/python3.10 /usr/bin/python
-
 # Install Torch and xformers
 ARG INDEX_URL
 ARG TORCH_VERSION

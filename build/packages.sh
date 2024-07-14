@@ -56,6 +56,7 @@ if [ -n "${PYTHON_VERSION}" ]; then
         "python${PYTHON_VERSION}-tk"
 
     # Link Python
+    rm /usr/bin/python
     ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python
     rm /usr/bin/python3
     ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python3
