@@ -17,9 +17,7 @@ variable "RUNPODCTL_VERSION" {
 group "default" {
     targets = [
         "py310-cu121-torch212",
-#        "py310-cu121-torch221",
         "py310-cu121-torch222",
-        "py310-cu121-torch230",
         "py310-cu121-torch231",
 
         "py311-cu121-torch222",
@@ -44,22 +42,6 @@ target "py310-cu121-torch212" {
     annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
 }
 
-#target "py310-cu121-torch221" {
-#    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
-#    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.10-cuda12.1.1-torch2.2.1"]
-#    args = {
-#        BASE_IMAGE = "nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04"
-#        REQUIRED_CUDA_VERSION = "12.1"
-#        PYTHON_VERSION = "3.10"
-#        RELEASE = "${RELEASE}"
-#        INDEX_URL = "https://download.pytorch.org/whl/cu121"
-#        TORCH_VERSION = "2.2.1+cu121"
-#        RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
-#    }
-#    platforms = ["linux/amd64"]
-#    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
-#}
-
 target "py310-cu121-torch222" {
     dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.10-cuda12.1.1-torch2.2.2"]
@@ -71,23 +53,6 @@ target "py310-cu121-torch222" {
         INDEX_URL = "https://download.pytorch.org/whl/cu121"
         TORCH_VERSION = "2.2.2+cu121"
         XFORMERS_VERSION = "0.0.25.post1"
-        RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
-    }
-    platforms = ["linux/amd64"]
-    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
-}
-
-target "py310-cu121-torch230" {
-    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
-    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.10-cuda12.1.1-torch2.3.0"]
-    args = {
-        BASE_IMAGE = "nvidia/cuda:12.1.1-cudnn8-devel-ubuntu22.04"
-        REQUIRED_CUDA_VERSION = "12.1"
-        PYTHON_VERSION = "3.10"
-        RELEASE = "${RELEASE}"
-        INDEX_URL = "https://download.pytorch.org/whl/cu121"
-        TORCH_VERSION = "2.3.0+cu121"
-        XFORMERS_VERSION = "0.0.26.post1"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
