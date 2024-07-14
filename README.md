@@ -2,7 +2,7 @@
 
 ## Target Images
 
-### cu121-torch212
+### py310-cu121-torch212
 
 - Ubuntu 22.04 LTS
 - CUDA 12.1
@@ -10,15 +10,7 @@
 - Torch 2.1.2
 - xformers 0.0.23.post1
 
-### cu121-torch221
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.2.1
-- ~~xformers~~
-
-### cu121-torch222
+### py310-cu121-torch222
 
 - Ubuntu 22.04 LTS
 - CUDA 12.1
@@ -26,7 +18,7 @@
 - Torch 2.2.2
 - xformers 0.0.25.post1
 
-### cu121-torch230
+### py310-cu121-torch230
 
 - Ubuntu 22.04 LTS
 - CUDA 12.1
@@ -34,11 +26,27 @@
 - Torch 2.3.0
 - xformers 0.0.26.post1
 
-### cu121-torch231
+### py310-cu121-torch231
 
 - Ubuntu 22.04 LTS
 - CUDA 12.1
 - Python 3.10.12
+- Torch 2.3.1
+- xformers 0.0.27
+
+### py311-cu121-torch222
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.11.9
+- Torch 2.2.2
+- xformers 0.0.25.post1
+
+### py311-cu121-torch231
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.11.9
 - Torch 2.3.1
 - xformers 0.0.27
 
