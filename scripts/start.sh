@@ -253,6 +253,11 @@ start_cron() {
     service cron start
 }
 
+check_python_version() {
+    echo "Checking Python version..."
+    python3 -V
+}
+
 # ---------------------------------------------------------------------------- #
 #                               Main Program                                   #
 # ---------------------------------------------------------------------------- #
@@ -269,6 +274,7 @@ start_runpod_uploader
 execute_script "/pre_start.sh" "Running pre-start script..."
 configure_filezilla
 update_rclone
+check_python_version
 export_env_vars
 execute_script "/post_start.sh" "Running post-start script..."
 echo "Container is READY!"
