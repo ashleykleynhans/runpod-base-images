@@ -2,6 +2,10 @@
 
 ## 2024-07-25
 
+- Bumped xformers 0.0.27.post1 to xformers 0.0.27.post2.
+
+## 2024-07-25
+
 - Added `py311-cu121-torch240` target for Python 3.11 + CUDA 12.1 + torch 2.4.0.
 - Added `py310-cu121-torch240` target for Python 3.10 + CUDA 12.1 + torch 2.4.0.
 

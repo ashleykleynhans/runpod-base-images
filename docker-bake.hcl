@@ -7,7 +7,7 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "2.1.0"
+    default = "2.1.1"
 }
 
 variable "RUNPODCTL_VERSION" {
@@ -88,7 +88,7 @@ target "py310-cu121-torch240" {
         RELEASE = "${RELEASE}"
         INDEX_URL = "https://download.pytorch.org/whl/cu121"
         TORCH_VERSION = "2.4.0+cu121"
-        XFORMERS_VERSION = "0.0.27.post1"
+        XFORMERS_VERSION = "0.0.27.post2"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
@@ -139,7 +139,7 @@ target "py311-cu121-torch240" {
         RELEASE = "${RELEASE}"
         INDEX_URL = "https://download.pytorch.org/whl/cu121"
         TORCH_VERSION = "2.4.0+cu121"
-        XFORMERS_VERSION = "0.0.27.post1"
+        XFORMERS_VERSION = "0.0.27.post2"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
