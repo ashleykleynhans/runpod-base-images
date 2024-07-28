@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2024-07-28
+
+- Added `--enable-proposed-api` to code-server arguments so that the
+  terminal clipboard can function correctly.
+
 ## 2024-07-25
 
 - Bumped xformers 0.0.27.post1 to xformers 0.0.27.post2.

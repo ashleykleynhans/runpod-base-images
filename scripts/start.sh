@@ -169,12 +169,17 @@ start_jupyter() {
     echo "Jupyter Lab started"
 }
 
-# Start code-server
+# Start Code Server
 start_code_server() {
-    echo "Starting code-server..."
+    echo "Starting Code Server..."
     mkdir -p /workspace/logs
-    nohup code-server --bind-addr 0.0.0.0:7777 --auth none --disable-telemetry /workspace &> /workspace/logs/code-server.log &
-    echo "code-server started"
+    nohup code-server \
+        --bind-addr 0.0.0.0:7777 \
+        --auth none \
+        --disable-telemetry \
+        --enable-proposed-api \
+        /workspace &> /workspace/logs/code-server.log &
+    echo "Code Server started"
 }
 
 start_runpod_uploader() {
