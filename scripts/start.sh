@@ -176,8 +176,8 @@ start_code_server() {
     nohup code-server \
         --bind-addr 0.0.0.0:7777 \
         --auth none \
+        --enable-proposed-api true \
         --disable-telemetry \
-        --enable-proposed-api \
         /workspace &> /workspace/logs/code-server.log &
     echo "Code Server started"
 }
