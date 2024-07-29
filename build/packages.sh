@@ -40,6 +40,9 @@ apt install -y --no-install-recommends \
     cron \
     pkg-config \
     plocate \
+    parallel \
+    pv \
+    sysstat \
     libcairo2-dev \
     libgoogle-perftools4 \
     libtcmalloc-minimal4 \

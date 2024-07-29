@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2024-07-29
+
+- Added `parallel`, `pv`, `sysstat` Ubuntu packages.
+
 ## 2024-07-28
 
 - Added `--enable-proposed-api` to code-server arguments so that the
