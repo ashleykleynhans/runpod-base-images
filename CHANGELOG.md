@@ -2,7 +2,7 @@
 
 ## 2024-07-29
 
-- Added `parallel`, `pv`, `sysstat`, `pigz` Ubuntu packages.
+- Added `parallel`, `pv`, `sysstat`, `pigz`, `jq` Ubuntu packages.
 
 ## 2024-07-28
 

@@ -44,6 +44,7 @@ apt install -y --no-install-recommends \
     pv \
     sysstat \
     pigz \
+    jq \
     libcairo2-dev \
     libgoogle-perftools4 \
     libtcmalloc-minimal4 \
