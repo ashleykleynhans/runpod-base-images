@@ -43,6 +43,7 @@ apt install -y --no-install-recommends \
     parallel \
     pv \
     sysstat \
+    pigz \
     libcairo2-dev \
     libgoogle-perftools4 \
     libtcmalloc-minimal4 \
