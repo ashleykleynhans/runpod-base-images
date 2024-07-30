@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2024-07-30
+
+- Added `lz4` and `zstd` Ubuntu packages.
+
 ## 2024-07-29
 
 - Added `parallel`, `pv`, `sysstat`, `pigz`, `jq` Ubuntu packages.
