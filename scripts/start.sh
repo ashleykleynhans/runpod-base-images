@@ -86,7 +86,7 @@ END
 }
 
 start_nginx() {
-    echo "Starting Nginx service..."
+    echo "NGINX: Starting Nginx service..."
     service nginx start
 }
 
@@ -118,7 +118,7 @@ generate_ssh_host_keys() {
 }
 
 setup_ssh() {
-    echo "Setting up SSH..."
+    echo "SSH: Setting up SSH..."
     mkdir -p ~/.ssh
 
     # Add SSH public key from environment variable to ~/.ssh/authorized_keys
@@ -134,12 +134,12 @@ setup_ssh() {
 
     service ssh start
 
-    echo "SSH host keys:"
+    echo "SSH: Host keys:"
     cat /etc/ssh/*.pub
 }
 
 export_env_vars() {
-    echo "Exporting environment variables..."
+    echo "ENV: Exporting environment variables..."
     printenv | grep -E '^RUNPOD_|^PATH=|^_=' | awk -F = '{ print "export " $1 "=\"" $2 "\"" }' >> /etc/rp_environment
     echo 'source /etc/rp_environment' >> ~/.bashrc
 }
@@ -153,7 +153,7 @@ start_jupyter() {
         JUPYTER_PASSWORD=${JUPYTER_LAB_PASSWORD}
     fi
 
-    echo "Starting Jupyter Lab..."
+    echo "JUPYTER: Starting Jupyter Lab..."
     mkdir -p /workspace/logs
     cd / && \
     nohup jupyter lab --allow-root \
@@ -166,12 +166,12 @@ start_jupyter() {
       --ServerApp.token=${JUPYTER_PASSWORD} \
       --ServerApp.allow_origin=* \
       --ServerApp.preferred_dir=/workspace &> /workspace/logs/jupyter.log &
-    echo "Jupyter Lab started"
+    echo "JUPYTER: Jupyter Lab started"
 }
 
 # Start Code Server
 start_code_server() {
-    echo "Starting Code Server..."
+    echo "CODE-SERVER: Starting Code Server..."
     mkdir -p /workspace/logs
     nohup code-server \
         --bind-addr 0.0.0.0:7777 \
@@ -179,13 +179,13 @@ start_code_server() {
         --enable-proposed-api true \
         --disable-telemetry \
         /workspace &> /workspace/logs/code-server.log &
-    echo "Code Server started"
+    echo "CODE-SERVER: Code Server started"
 }
 
 start_runpod_uploader() {
-    echo "Starting RunPod Uploader..."
+    echo "RUNPOD-UPLOADER: Starting RunPod Uploader..."
     nohup /usr/local/bin/runpod-uploader &> /workspace/logs/runpod-uploader.log &
-    echo "RunPod Uploader started"
+    echo "RUNPOD-UPLOADER: RunPod Uploader started"
 }
 
 configure_filezilla() {
@@ -242,24 +242,24 @@ configure_filezilla() {
     </Servers>
 </FileZilla3>
 EOF
-        echo "FileZilla SFTP configuration file created at: ${filezilla_config_file}"
+        echo "FILEZILLA: FileZilla SFTP configuration file created at: ${filezilla_config_file}"
     else
-        echo "RUNPOD_PUBLIC_IP is not set. Skipping FileZilla configuration."
+        echo "FILEZILLA: RUNPOD_PUBLIC_IP is not set. Skipping FileZilla configuration."
     fi
 }
 
 update_rclone() {
-    echo "Updating rclone..."
+    echo "RCLONE: Updating rclone..."
     rclone selfupdate
 }
 
 start_cron() {
-    echo "Starting Cron service..."
+    echo "CRON: Starting Cron service..."
     service cron start
 }
 
 check_python_version() {
-    echo "Checking Python version..."
+    echo "PYTHON: Checking Python version..."
     python3 -V
 }
 
@@ -276,11 +276,11 @@ start_code_server
 #check_cuda_version
 #test_pytorch_cuda
 start_runpod_uploader
-execute_script "/pre_start.sh" "Running pre-start script..."
+execute_script "/pre_start.sh" "PRE-START: Running pre-start script..."
 configure_filezilla
 update_rclone
 check_python_version
 export_env_vars
-execute_script "/post_start.sh" "Running post-start script..."
+execute_script "/post_start.sh" "POST-START: Running post-start script..."
 echo "Container is READY!"
 sleep infinity
