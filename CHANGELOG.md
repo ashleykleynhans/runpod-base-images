@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2024-07-31
+
+- Added `cpio` Ubuntu package.
+- Improved container logs.
+
 ## 2024-07-30
 
 - Added `lz4` and `zstd` Ubuntu packages.

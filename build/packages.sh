@@ -46,6 +46,7 @@ apt install -y --no-install-recommends \
     pigz \
     lz4 \
     zstd \
+    cpio \
     jq \
     libcairo2-dev \
     libgoogle-perftools4 \
