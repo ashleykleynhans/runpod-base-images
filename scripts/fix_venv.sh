@@ -9,7 +9,7 @@ fi
 OLD_PATH=${1}
 NEW_PATH=${2}
 
-echo "Fixing venv. Old Path: ${OLD_PATH}  New Path: ${NEW_PATH}"
+echo "VENV: Fixing venv. Old Path: ${OLD_PATH}  New Path: ${NEW_PATH}"
 
 cd ${NEW_PATH}/bin
 sed -i "s|VIRTUAL_ENV=\"${OLD_PATH}\"|VIRTUAL_ENV=\"${NEW_PATH}\"|" activate

@@ -36,6 +36,22 @@
 - Torch 2.4.0
 - xformers 0.0.27.post2
 
+#### py310-cu121-torch251
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.10.12
+- Torch 2.5.1
+- xformers 0.0.29.post1
+
+#### py310-cu121-torch260
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.10.12
+- Torch 2.6.0
+- xformers 0.0.29.post3
+
 ### Python 3.11
 
 #### py311-cu121-torch222
@@ -61,6 +77,22 @@
 - Python 3.11.9
 - Torch 2.4.0
 - xformers 0.0.27.post2
+
+#### py311-cu121-torch251
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.11.9
+- Torch 2.5.1
+- xformers 0.0.29.post1
+
+#### py311-cu121-torch260
+
+- Ubuntu 22.04 LTS
+- CUDA 12.1
+- Python 3.11.9
+- Torch 2.6.0
+- xformers 0.0.29.post3
 
 ## Pre-installed applications
 

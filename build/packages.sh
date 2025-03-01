@@ -5,6 +5,7 @@ apt install -y --no-install-recommends \
     build-essential \
     software-properties-common \
     python3-pip \
+    python3-dev \
     nodejs \
     npm \
     bash \
