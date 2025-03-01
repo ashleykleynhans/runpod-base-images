@@ -21,13 +21,13 @@ group "default" {
         "py310-cu121-torch231",
         "py310-cu121-torch240",
         "py310-cu121-torch251",
-        "py310-cu121-torch260",
+#        "py310-cu121-torch260",
 
         "py311-cu121-torch222",
         "py311-cu121-torch231",
         "py311-cu121-torch240",
         "py311-cu121-torch251",
-        "py311-cu121-torch260"
+#        "py311-cu121-torch260"
     ]
 }
 
