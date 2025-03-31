@@ -61,9 +61,8 @@ if [ -n "${PYTHON_VERSION}" ]; then
     apt install -y --no-install-recommends \
         "python${PYTHON_VERSION}" \
         "python${PYTHON_VERSION}-dev" \
-        "python${PYTHON_VERSION}-pip" \
         "python${PYTHON_VERSION}-venv" \
-        "python${PYTHON_VERSION}-tk"
+        "python3-tk"
 
     # Link Python
     rm /usr/bin/python
@@ -71,8 +70,15 @@ if [ -n "${PYTHON_VERSION}" ]; then
     rm /usr/bin/python3
     ln -s /usr/bin/python${PYTHON_VERSION} /usr/bin/python3
 
+    # Install pip
+    curl -sS https://bootstrap.pypa.io/get-pip.py | python${PYTHON_VERSION}
+
     # Upgrade pip
-    pip3 install --upgrade --no-cache-dir pip
+    python3 -m pip install --upgrade --no-cache-dir pip
+
+    # Create symlink for pip3
+    rm -f /usr/bin/pip3
+    ln -s /usr/local/bin/pip3 /usr/bin/pip3
 fi
 
 update-ca-certificates
