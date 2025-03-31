@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2025-03-31
+
+- Added `py312-cu121-torch251` target for Python 3.12 + CUDA 12.1 + torch 2.5.1.
+
 ## 2024-07-31
 
 - Added `cpio` Ubuntu package.
