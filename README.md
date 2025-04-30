@@ -102,6 +102,14 @@
 - Torch 2.5.1
 - xformers 0.0.29.post1
 
+#### py312-cu124-torch260
+
+- Ubuntu 22.04 LTS
+- CUDA 12.4
+- Python 3.12.9
+- Torch 2.6.0
+- xformers 0.0.29.post3
+
 #### py312-cu128-torch270
 
 - Ubuntu 22.04 LTS

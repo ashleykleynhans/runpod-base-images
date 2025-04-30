@@ -2,6 +2,7 @@
 
 ## 2025-04-30
 
+- Added `py312-cu124-torch260` target for Python 3.12 + CUDA 12.4 + torch 2.6.0.
 - Added `py312-cu128-torch270` target for Python 3.12 + CUDA 12.8 + torch 2.7.0.
 
 ## 2025-04-22
