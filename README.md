@@ -102,6 +102,14 @@
 - Torch 2.5.1
 - xformers 0.0.29.post1
 
+#### py312-cu128-torch270
+
+- Ubuntu 24.04 LTS
+- CUDA 12.8
+- Python 3.12.9
+- Torch 2.7.0
+- xformers 0.0.30
+
 ## Pre-installed applications
 
 * [Jupyter Lab](https://github.com/jupyterlab/jupyterlab)
