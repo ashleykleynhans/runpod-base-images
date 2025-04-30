@@ -246,7 +246,7 @@ target "py312-cu124-torch260" {
         REQUIRED_CUDA_VERSION = "12.4"
         PYTHON_VERSION = "3.12"
         RELEASE = "${RELEASE}"
-        INDEX_URL = "https://download.pytorch.org/whl/cu128"
+        INDEX_URL = "https://download.pytorch.org/whl/cu124"
         TORCH_VERSION = "2.6.0+cu124"
         XFORMERS_VERSION = "0.0.29.post3"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
