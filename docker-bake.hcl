@@ -261,11 +261,11 @@ target "py312-cu128-torch270" {
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.8.1-torch2.7.0"]
     args = {
         BASE_IMAGE = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
-        REQUIRED_CUDA_VERSION = "12.4"
+        REQUIRED_CUDA_VERSION = "12.8"
         PYTHON_VERSION = "3.12"
         RELEASE = "${RELEASE}"
         INDEX_URL = "https://download.pytorch.org/whl/cu128"
-        TORCH_VERSION = "2.7.0+cu124"
+        TORCH_VERSION = "2.7.0+cu128"
         XFORMERS_VERSION = "0.0.30"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
