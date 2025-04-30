@@ -104,7 +104,7 @@
 
 #### py312-cu128-torch270
 
-- Ubuntu 24.04 LTS
+- Ubuntu 22.04 LTS
 - CUDA 12.8
 - Python 3.12.9
 - Torch 2.7.0
