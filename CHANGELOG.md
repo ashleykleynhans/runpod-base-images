@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2024-05-12
+
+- Added `py310-cu124-torch260` target for Python 3.10 + CUDA 12.4 + torch 2.6.0.
+- Added `py311-cu124-torch260` target for Python 3.11 + CUDA 12.4 + torch 2.6.0.
+
 ## 2025-04-30
 
 - Added `py312-cu124-torch260` target for Python 3.12 + CUDA 12.4 + torch 2.6.0.
