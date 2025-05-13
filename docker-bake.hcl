@@ -208,7 +208,7 @@ target "py311-cu124-torch260" {
     dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda12.4.1-torch2.6.0"]
     args = {
-        BASE_IMAGE = "nvidia/cuda:12.4.1-cudnn8-devel-ubuntu22.04"
+        BASE_IMAGE = "nvidia/cuda:12.4.1-cudnn-devel-ubuntu22.04"
         REQUIRED_CUDA_VERSION = "12.4"
         PYTHON_VERSION = "3.11"
         RELEASE = "${RELEASE}"
