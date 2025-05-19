@@ -29,6 +29,7 @@ group "default" {
         "py311-cu121-torch240",
         "py311-cu121-torch251",
         "py311-cu124-torch260",
+        "py311-cu128-torch270",
         "py312-cu121-torch251",
         "py312-cu124-torch260",
         "py312-cu128-torch270"
@@ -233,6 +234,23 @@ target "py311-cu124-torch260" {
         INDEX_URL = "https://download.pytorch.org/whl/cu124"
         TORCH_VERSION = "2.6.0+cu124"
         XFORMERS_VERSION = "0.0.29.post3"
+        RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py311-cu128-torch270" {
+    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda12.8.1-torch2.7.0"]
+    args = {
+        BASE_IMAGE = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.8"
+        PYTHON_VERSION = "3.11"
+        RELEASE = "${RELEASE}"
+        INDEX_URL = "https://download.pytorch.org/whl/cu128"
+        TORCH_VERSION = "2.7.0+cu128"
+        XFORMERS_VERSION = "0.0.30"
         RUNPODCTL_VERSION = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
