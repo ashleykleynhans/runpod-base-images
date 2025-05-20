@@ -20,7 +20,7 @@ echo "Python version is ${PYTHON_VERSION}.x"
 # Update the venv path in the activate script
 if [[ "$PYTHON_VERSION" == "3.10" ]]; then
     sed -i "s|VIRTUAL_ENV=\"${OLD_PATH}\"|VIRTUAL_ENV=\"${NEW_PATH}\"|" activate
-elif [[ "$PYTHON_VERSION" == "3.12" ]]; then
+elif [[ "$PYTHON_VERSION" == "3.11" || "$PYTHON_VERSION" == "3.12" ]]; then
     sed -i "s|VIRTUAL_ENV=${OLD_PATH}|VIRTUAL_ENV=${NEW_PATH}|" activate
 else
     sed -i "s|VIRTUAL_ENV=\"${OLD_PATH}\"|VIRTUAL_ENV=\"${NEW_PATH}\"|" activate

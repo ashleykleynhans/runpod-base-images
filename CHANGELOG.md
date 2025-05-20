@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2025-05-20
+
+- Added support for Python 3.11 to fix_venv.sh script.
+
 ## 2025-05-19
 
 - Added `py311-cu128-torch270` target for Python 3.11 + CUDA 12.8 + torch 2.7.0.
