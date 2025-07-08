@@ -28,22 +28,6 @@
 - Torch 2.3.1
 - xformers 0.0.27
 
-#### py310-cu121-torch240
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.4.0
-- xformers 0.0.27.post2
-
-#### py310-cu121-torch251
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.5.1
-- xformers 0.0.29.post1
-
 #### py310-cu121-torch260
 
 - Ubuntu 22.04 LTS
@@ -53,38 +37,6 @@
 - xformers 0.0.29.post3
 
 ### Python 3.11
-
-#### py311-cu121-torch222
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.2.2
-- xformers 0.0.25.post1
-
-#### py311-cu121-torch231
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.3.1
-- xformers 0.0.27
-
-#### py311-cu121-torch240
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.4.0
-- xformers 0.0.27.post2
-
-#### py311-cu121-torch251
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.5.1
-- xformers 0.0.29.post1
 
 #### py311-cu121-torch260
 
@@ -111,14 +63,6 @@
 - xformers 0.0.31
 
 ### Python 3.12
-
-#### py312-cu121-torch251
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.12.9
-- Torch 2.5.1
-- xformers 0.0.29.post1
 
 #### py312-cu124-torch260
 
