@@ -270,7 +270,7 @@ target "py311-cu128-torch271" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.7.1+cu128"
-        XFORMERS_VERSION      = "0.0.31.post1"
+        XFORMERS_VERSION      = "0.0.31"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
@@ -338,7 +338,7 @@ target "py312-cu128-torch271" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.7.1+cu128"
-        XFORMERS_VERSION      = "0.0.31.post1"
+        XFORMERS_VERSION      = "0.0.31"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
