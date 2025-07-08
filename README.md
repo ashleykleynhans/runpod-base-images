@@ -168,12 +168,15 @@ git clone https://github.com/ashleykleynhans/runpod-base-images.git
 # Log in to Docker Hub
 docker login
 
-# Build the image, tag the image, and push the image to Docker Hub
+# Build the default images, tag the images, and push the images to Docker Hub
 docker buildx bake -f docker-bake.hcl --push
+
+# Build ALL images, tag the images, and push the images to Docker Hub
+docker buildx bake -f docker-bake.hcl all --push
 
 # Build a specific target for a different user, registry and release version
 REGISTRY=ghcr.io REGISTRY_USER=my_gh_user RELEASE=x.y.z docker buildx bake \
-    -f docker-bake.hcl --push cu118-torch212
+    -f docker-bake.hcl --push py312-cu128-torch271
 ```
 
 ## Acknowledgements

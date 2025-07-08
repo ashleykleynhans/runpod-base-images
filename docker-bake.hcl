@@ -16,6 +16,16 @@ variable "RUNPODCTL_VERSION" {
 
 group "default" {
     targets = [
+        "py311-cu124-torch260",
+        "py312-cu124-torch260",
+
+        "py311-cu128-torch271",
+        "py312-cu128-torch271"
+    ]
+}
+
+group "all" {
+    targets = [
         "py310-cu121-torch212",
         "py310-cu121-torch222",
         "py310-cu121-torch231",
