@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2025-10-08
+
+- Fixed bug in `fix_venv.sh` script that caused it to fail when the venv did not contain double quotes.
+
 ## 2025-07-13
 
 - Added `py311-cu128-torch280` target for Python 3.11 + CUDA 12.8 + torch 2.8.0.

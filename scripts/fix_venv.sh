@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 if [ "$#" -ne 2 ]; then
   echo "Usage: $0 <OLD_VENV> <NEW_VENV>"
   echo "   eg: $0 /venv /workspace/venv"
@@ -8,22 +7,18 @@ fi
 
 OLD_PATH=${1}
 NEW_PATH=${2}
-
 echo "VENV: Fixing venv. Old Path: ${OLD_PATH}  New Path: ${NEW_PATH}"
-
 cd ${NEW_PATH}/bin
 
-PYTHON_VERSION=$(python3 -c "import sys; print(f'{sys.version_info.major}.{sys.version_info.minor}')")
-
-echo "Python version is ${PYTHON_VERSION}.x"
-
-# Update the venv path in the activate script
-if [[ "$PYTHON_VERSION" == "3.10" ]]; then
+# Check if VIRTUAL_ENV line contains quotes or not
+if grep -q "VIRTUAL_ENV=\"${OLD_PATH}\"" activate; then
+    echo "Found VIRTUAL_ENV with quotes"
     sed -i "s|VIRTUAL_ENV=\"${OLD_PATH}\"|VIRTUAL_ENV=\"${NEW_PATH}\"|" activate
-elif [[ "$PYTHON_VERSION" == "3.11" || "$PYTHON_VERSION" == "3.12" ]]; then
+elif grep -q "VIRTUAL_ENV=${OLD_PATH}" activate; then
+    echo "Found VIRTUAL_ENV without quotes"
     sed -i "s|VIRTUAL_ENV=${OLD_PATH}|VIRTUAL_ENV=${NEW_PATH}|" activate
 else
-    sed -i "s|VIRTUAL_ENV=\"${OLD_PATH}\"|VIRTUAL_ENV=\"${NEW_PATH}\"|" activate
+    echo "Warning: Could not find VIRTUAL_ENV=${OLD_PATH} in activate script"
 fi
 
 # Update the venv path in the shebang for all files containing a shebang
