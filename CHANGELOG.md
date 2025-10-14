@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 2025-10-14
+
+- Fixed bug in `fix_venv.sh` script when updating binaries and `__pycache__` directories were present.
+
 ## 2025-10-08
 
 - Fixed bug in `fix_venv.sh` script that caused it to fail when the venv did not contain double quotes.

@@ -4,7 +4,6 @@ if [ "$#" -ne 2 ]; then
   echo "   eg: $0 /venv /workspace/venv"
   exit 1
 fi
-
 OLD_PATH=${1}
 NEW_PATH=${2}
 echo "VENV: Fixing venv. Old Path: ${OLD_PATH}  New Path: ${NEW_PATH}"
@@ -21,5 +20,8 @@ else
     echo "Warning: Could not find VIRTUAL_ENV=${OLD_PATH} in activate script"
 fi
 
-# Update the venv path in the shebang for all files containing a shebang
-sed -i "s|#\!${OLD_PATH}/bin/python3|#\!${NEW_PATH}/bin/python3|" *
+# Update the venv path in the shebang for all regular files containing a shebang
+find . -maxdepth 1 -type f -exec grep -l "^#\!${OLD_PATH}/bin/python3" {} \; | \
+    while read file; do
+        sed -i "s|#\!${OLD_PATH}/bin/python3|#\!${NEW_PATH}/bin/python3|" "$file"
+    done
