@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2025-10-17
+
+- Added `py311-cu128-torch290` target for Python 3.11 + CUDA 12.8 + torch 2.9.0.
+- Added `py312-cu128-torch290` target for Python 3.12 + CUDA 12.8 + torch 2.9.0.
+
 ## 2025-10-14
 
 - Fixed bug in `fix_venv.sh` script when updating binaries and `__pycache__` directories were present.

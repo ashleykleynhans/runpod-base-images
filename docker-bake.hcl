@@ -7,7 +7,7 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "2.4.8"
+    default = "2.4.9"
 }
 
 variable "RUNPODCTL_VERSION" {
@@ -35,10 +35,12 @@ group "all" {
         "py311-cu128-torch270",
         "py311-cu128-torch271",
         "py311-cu128-torch280",
+        "py311-cu128-torch290",
 
         "py312-cu124-torch260",
         "py312-cu128-torch270",
         "py312-cu128-torch271",
+        "py312-cu128-torch280",
         "py312-cu128-torch280"
     ]
 }
@@ -179,6 +181,23 @@ target "py311-cu128-torch280" {
     annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
 }
 
+target "py311-cu128-torch290" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda12.8.1-torch2.9.0"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.8"
+        PYTHON_VERSION        = "3.11"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu128"
+        TORCH_VERSION         = "2.9.0+cu128"
+        XFORMERS_VERSION      = "0.0.32.post2"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
 target "py312-cu124-torch260" {
     dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.4.1-torch2.6.0"]
@@ -240,6 +259,23 @@ target "py312-cu128-torch280" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.8.0+cu128"
+        XFORMERS_VERSION      = "0.0.32.post2"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py312-cu128-torch290" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.8.1-torch2.9.0"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.8"
+        PYTHON_VERSION        = "3.12"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu128"
+        TORCH_VERSION         = "2.9.0+cu128"
         XFORMERS_VERSION      = "0.0.32.post2"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
