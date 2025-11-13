@@ -1,5 +1,10 @@
 # CHANGELOG
 
+- Added `py311-cu128-torch291` target for Python 3.11 + CUDA 12.8 + torch 2.9.1.
+- Added `py312-cu128-torch291` target for Python 3.12 + CUDA 12.8 + torch 2.9.1.
+- Removed `py311-cu128-torch290` target for Python 3.11 + CUDA 12.8 + torch 2.9.0.
+- Removed `py312-cu128-torch290` target for Python 3.12 + CUDA 12.8 + torch 2.9.0.
+
 ## 2025-10-17
 
 - Added `py311-cu128-torch290` target for Python 3.11 + CUDA 12.8 + torch 2.9.0.
