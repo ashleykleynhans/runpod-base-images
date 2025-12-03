@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2025-12-03
+
+- Set torch 2.9.1 images as the default for CUDA 12.8.
+- Bump xformers for torch 2.9.1 images to version 0.0.33.post2.
+
+## 2025-11-22
+
+- Bump xformers to 0.0.33.post1 in torch 2.9.1 images, bump runpodctl to version v1.14.14.
+
+## 2025-11-13
+
 - Added `py311-cu128-torch291` target for Python 3.11 + CUDA 12.8 + torch 2.9.1.
 - Added `py312-cu128-torch291` target for Python 3.12 + CUDA 12.8 + torch 2.9.1.
 - Removed `py311-cu128-torch290` target for Python 3.11 + CUDA 12.8 + torch 2.9.0.
