@@ -276,7 +276,7 @@ target "py312-cu128-torch291" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.9.1+cu128"
-        XFORMERS_VERSION      = "0.0.33.post2"
+        XFORMERS_VERSION      = "0.0.33.post1"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]

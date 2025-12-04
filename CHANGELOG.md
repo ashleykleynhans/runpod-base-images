@@ -2,6 +2,10 @@
 
 ## 2025-12-03
 
+- Revert xformers to version 0.0.33.post1 in torch 2.9.1 images.
+
+## 2025-12-03
+
 - Set torch 2.9.1 images as the default for CUDA 12.8.
 - Bump xformers for torch 2.9.1 images to version 0.0.33.post2.
 
