@@ -7,11 +7,11 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "2.4.10"
+    default = "2.4.11"
 }
 
 variable "RUNPODCTL_VERSION" {
-    default = "v1.14.14"
+    default = "v1.14.15"
 }
 
 group "default" {
@@ -182,7 +182,7 @@ target "py311-cu128-torch280" {
 }
 
 target "py311-cu128-torch291" {
-    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda12.8.1-torch2.9.1"]
     args = {
         BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
@@ -191,7 +191,6 @@ target "py311-cu128-torch291" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.9.1+cu128"
-        XFORMERS_VERSION      = "0.0.33.post1"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
@@ -267,7 +266,7 @@ target "py312-cu128-torch280" {
 }
 
 target "py312-cu128-torch291" {
-    dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.8.1-torch2.9.1"]
     args = {
         BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
@@ -276,7 +275,6 @@ target "py312-cu128-torch291" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.9.1+cu128"
-        XFORMERS_VERSION      = "0.0.33.post1"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]
