@@ -2,91 +2,18 @@
 
 ## Target Images
 
-### Python 3.10
-
-#### py310-cu121-torch212
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.1.2
-- xformers 0.0.23.post1
-
-#### py310-cu121-torch222
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.2.2
-- xformers 0.0.25.post1
-
-#### py310-cu121-torch231
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.3.1
-- xformers 0.0.27
-
-#### py310-cu121-torch260
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.10.12
-- Torch 2.6.0
-- xformers 0.0.29.post3
-
-### Python 3.11
-
-#### py311-cu121-torch260
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.6.0
-- xformers 0.0.29.post3
-
-#### py311-cu121-torch270
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.7.0
-- xformers 0.0.30
-
-#### py311-cu121-torch271
-
-- Ubuntu 22.04 LTS
-- CUDA 12.1
-- Python 3.11.9
-- Torch 2.7.1
-- xformers 0.0.31
-
-### Python 3.12
-
-#### py312-cu124-torch260
-
-- Ubuntu 22.04 LTS
-- CUDA 12.4
-- Python 3.12.9
-- Torch 2.6.0
-- xformers 0.0.29.post3
-
-#### py312-cu128-torch270
-
-- Ubuntu 22.04 LTS
-- CUDA 12.8
-- Python 3.12.9
-- Torch 2.7.0
-- xformers 0.0.30
-
-#### py312-cu128-torch271
-
-- Ubuntu 22.04 LTS
-- CUDA 12.8
-- Python 3.12.9
-- Torch 2.7.1
-- xformers 0.0.31
+| Image                | Ubuntu    | CUDA | Python  | Torch | xformers     |
+|----------------------|-----------|------|---------|-------|--------------|
+| py310-cu121-torch212 | 22.04 LTS | 12.1 | 3.10.12 | 2.1.2 | 0.0.23.post1 |
+| py310-cu121-torch222 | 22.04 LTS | 12.1 | 3.10.12 | 2.2.2 | 0.0.25.post1 |
+| py310-cu121-torch231 | 22.04 LTS | 12.1 | 3.10.12 | 2.3.1 | 0.0.27       |
+| py310-cu121-torch260 | 22.04 LTS | 12.1 | 3.10.12 | 2.6.0 | 0.0.29.post3 |
+| py311-cu121-torch260 | 22.04 LTS | 12.1 | 3.11.9  | 2.6.0 | 0.0.29.post3 |
+| py311-cu121-torch270 | 22.04 LTS | 12.1 | 3.11.9  | 2.7.0 | 0.0.30       |
+| py311-cu121-torch271 | 22.04 LTS | 12.1 | 3.11.9  | 2.7.1 | 0.0.31       |
+| py312-cu124-torch260 | 22.04 LTS | 12.4 | 3.12.9  | 2.6.0 | 0.0.29.post3 |
+| py312-cu128-torch270 | 22.04 LTS | 12.8 | 3.12.9  | 2.7.0 | 0.0.30       |
+| py312-cu128-torch271 | 22.04 LTS | 12.8 | 3.12.9  | 2.7.1 | 0.0.31       |
 
 ## Pre-installed applications
 
