@@ -141,7 +141,7 @@ setup_ssh() {
 export_env_vars() {
     echo "ENV: Exporting environment variables..."
     printenv | grep -E '^RUNPOD_' | awk -F= '{print "export " $1 "=\"" substr($0, index($0,"=")+1) "\""}' >> /etc/rp_environment
-    printenv | awk -F= '{print "export " $1 "=\"" substr($0, index($0,"=")+1) "\""}' >> /etc/environment
+    printenv | grep -E '^[a-zA-Z_][a-zA-Z0-9_]*=' | awk -F= '{print "export " $1 "=\"" substr($0, index($0,"=")+1) "\""}' >> /etc/environment
     echo 'source /etc/rp_environment' >> ~/.bashrc
     echo 'source /etc/environment' >> ~/.bashrc
 }
