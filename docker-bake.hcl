@@ -36,12 +36,14 @@ group "all" {
         "py311-cu128-torch271",
         "py311-cu128-torch280",
         "py311-cu128-torch291",
+        "py311-cu128-torch2100",
 
         "py312-cu124-torch260",
         "py312-cu128-torch270",
         "py312-cu128-torch271",
         "py312-cu128-torch280",
-        "py312-cu128-torch291"
+        "py312-cu128-torch291",
+        "py312-cu128-torch2100"
     ]
 }
 
@@ -197,6 +199,22 @@ target "py311-cu128-torch291" {
     annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
 }
 
+target "py311-cu128-torch2100" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda12.8.1-torch2.10.0"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.8"
+        PYTHON_VERSION        = "3.11"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu128"
+        TORCH_VERSION         = "2.10.0+cu128"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
 target "py312-cu124-torch260" {
     dockerfile = "./dockerfiles/with-xformers-cuxxx/Dockerfile"
     tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.4.1-torch2.6.0"]
@@ -275,6 +293,22 @@ target "py312-cu128-torch291" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu128"
         TORCH_VERSION         = "2.9.1+cu128"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py312-cu128-torch2100" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda12.8.1-torch2.10.0"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:12.8.1-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "12.8"
+        PYTHON_VERSION        = "3.12"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu128"
+        TORCH_VERSION         = "2.10.0+cu128"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]

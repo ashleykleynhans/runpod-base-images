@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## 2026-01-22
+
+- Added `py311-cu128-torch2100` target for Python 3.11 + CUDA 12.8 + torch 2.10.0.
+- Added `py312-cu128-torch2100` target for Python 3.12 + CUDA 12.8 + torch 2.10.0.
+
 ## 2025-12-10
 
 - Removed xformers from torch 2.9.1 images.
