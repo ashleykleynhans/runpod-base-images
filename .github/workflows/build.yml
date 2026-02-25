@@ -5,36 +5,73 @@ on:
     branches:
       - main
     paths:
-      - docker-bake.hcl
+      - 'docker-bake.hcl'
   workflow_dispatch:
 
 jobs:
-  check-release:
+  detect-changes:
     runs-on: ubuntu-latest
     outputs:
-      changed: ${{ steps.diff.outputs.changed }}
+      release: ${{ steps.extract.outputs.release }}
+      registry_user: ${{ steps.extract.outputs.registry_user }}
+      should_build: ${{ steps.check.outputs.should_build }}
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
 
-      - name: Check if RELEASE changed
-        id: diff
+      - name: Extract variables from docker-bake.hcl
+        id: extract
         run: |
-          OLD=$(git show HEAD~1:docker-bake.hcl 2>/dev/null | grep -oP 'variable "RELEASE" \{\s*\n\s*default = "\K[^"]+' || echo "")
-          NEW=$(grep -oP 'variable "RELEASE" \{\s*\n\s*default = "\K[^"]+' docker-bake.hcl)
-          if [ "$OLD" != "$NEW" ]; then
-            echo "changed=true" >> "$GITHUB_OUTPUT"
-            echo "RELEASE changed: $OLD -> $NEW"
-          else
-            echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "RELEASE unchanged: $NEW"
+          RELEASE=$(grep 'variable "RELEASE"' -A 2 docker-bake.hcl | grep 'default' | sed 's/.*"\(.*\)"/\1/')
+          REGISTRY_USER=$(grep 'variable "REGISTRY_USER"' -A 2 docker-bake.hcl | grep 'default' | sed 's/.*"\(.*\)"/\1/')
+
+          echo "release=${RELEASE}" >> $GITHUB_OUTPUT
+          echo "registry_user=${REGISTRY_USER}" >> $GITHUB_OUTPUT
+
+          echo "Current RELEASE: ${RELEASE}"
+          echo "Current REGISTRY_USER: ${REGISTRY_USER}"
+
+      - name: Check if RELEASE changed
+        id: check
+        run: |
+          # For manual triggers, always build
+          if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "Manual trigger - will build"
+            exit 0
           fi
 
-  build:
-    needs: check-release
-    if: needs.check-release.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
+          # Check if docker-bake.hcl was modified
+          if ! git diff HEAD^ HEAD --name-only | grep -q "docker-bake.hcl"; then
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "docker-bake.hcl not modified - skipping build"
+            exit 0
+          fi
+
+          # Get RELEASE value from current commit
+          CURRENT_RELEASE=$(grep 'variable "RELEASE"' -A 2 docker-bake.hcl | grep 'default' | sed 's/.*"\(.*\)"/\1/')
+
+          # Get RELEASE value from previous commit
+          git show HEAD^:docker-bake.hcl > /tmp/docker-bake-prev.hcl
+          PREV_RELEASE=$(grep 'variable "RELEASE"' -A 2 /tmp/docker-bake-prev.hcl | grep 'default' | sed 's/.*"\(.*\)"/\1/')
+
+          echo "Previous RELEASE: ${PREV_RELEASE}"
+          echo "Current RELEASE: ${CURRENT_RELEASE}"
+
+          # Compare RELEASE values
+          if [ "${PREV_RELEASE}" != "${CURRENT_RELEASE}" ]; then
+            echo "should_build=true" >> $GITHUB_OUTPUT
+            echo "RELEASE changed from '${PREV_RELEASE}' to '${CURRENT_RELEASE}' - will build"
+          else
+            echo "should_build=false" >> $GITHUB_OUTPUT
+            echo "RELEASE unchanged - skipping build"
+          fi
+
+  build-and-push:
+    needs: detect-changes
+    if: needs.detect-changes.outputs.should_build == 'true'
     runs-on: ubuntu-latest
 
     steps:
@@ -68,7 +105,7 @@ jobs:
           echo "=== After cleanup ==="
           df -h /
 
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
