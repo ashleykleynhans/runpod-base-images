@@ -37,6 +37,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Free up disk space
+        run: |
+          echo "=== Before cleanup ==="
+          df -h /
+
+          # Remove swap
+          sudo swapoff -a
+          sudo rm -f /swapfile
+
+          # Remove large pre-installed tools and frameworks
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+            /usr/local/share/boost /opt/hostedtoolcache /usr/share/swift \
+            /usr/local/.ghcup /usr/local/graalvm /usr/local/share/powershell \
+            /usr/local/share/chromium /usr/local/lib/node_modules
+
+          # Remove pre-installed apt packages we don't need
+          sudo apt-get purge -y \
+            dotnet-* aspnetcore-* azure-cli google-cloud-cli \
+            firefox mysql-* postgresql-* mongodb-* moby-* \
+            powershell php* snapd google-chrome-stable microsoft-edge-stable \
+            2>/dev/null || true
+          sudo apt-get autoremove -y
+          sudo apt-get clean
+
+          # Remove pre-cached docker images
+          docker image prune -af
+
+          echo "=== After cleanup ==="
+          df -h /
+
       - name: Checkout
         uses: actions/checkout@v4
 
