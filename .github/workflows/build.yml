@@ -6,6 +6,7 @@ on:
       - main
     paths:
       - docker-bake.hcl
+  workflow_dispatch:
 
 jobs:
   check-release:
@@ -33,7 +34,7 @@ jobs:
 
   build:
     needs: check-release
-    if: needs.check-release.outputs.changed == 'true'
+    if: needs.check-release.outputs.changed == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
 
     steps:
