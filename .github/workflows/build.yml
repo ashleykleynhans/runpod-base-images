@@ -15,6 +15,7 @@ jobs:
       release: ${{ steps.extract.outputs.release }}
       registry_user: ${{ steps.extract.outputs.registry_user }}
       should_build: ${{ steps.check.outputs.should_build }}
+      targets: ${{ steps.targets.outputs.targets }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -69,10 +70,24 @@ jobs:
             echo "RELEASE unchanged - skipping build"
           fi
 
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Extract build targets
+        id: targets
+        run: |
+          TARGETS=$(docker buildx bake -f docker-bake.hcl all --print 2>/dev/null | jq -c '[.target | keys[]]')
+          echo "targets=${TARGETS}" >> $GITHUB_OUTPUT
+          echo "Targets: ${TARGETS}"
+
   build-and-push:
     needs: detect-changes
     if: needs.detect-changes.outputs.should_build == 'true'
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        target: ${{ fromJson(needs.detect-changes.outputs.targets) }}
 
     steps:
       - name: Free up disk space
@@ -117,9 +132,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push all images
+      - name: Build and push ${{ matrix.target }}
         uses: docker/bake-action@v6
         with:
           files: docker-bake.hcl
-          targets: all
+          targets: ${{ matrix.target }}
           push: true
