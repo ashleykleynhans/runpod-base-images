@@ -4,9 +4,36 @@ on:
   push:
     branches:
       - main
+    paths:
+      - docker-bake.hcl
 
 jobs:
+  check-release:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Check if RELEASE changed
+        id: diff
+        run: |
+          OLD=$(git show HEAD~1:docker-bake.hcl 2>/dev/null | grep -oP 'variable "RELEASE" \{\s*\n\s*default = "\K[^"]+' || echo "")
+          NEW=$(grep -oP 'variable "RELEASE" \{\s*\n\s*default = "\K[^"]+' docker-bake.hcl)
+          if [ "$OLD" != "$NEW" ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "RELEASE changed: $OLD -> $NEW"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "RELEASE unchanged: $NEW"
+          fi
+
   build:
+    needs: check-release
+    if: needs.check-release.outputs.changed == 'true'
     runs-on: ubuntu-latest
 
     steps:
