@@ -2,6 +2,7 @@
 
 ## 2026-03-08
 
+- Added `py313-cu128-torch291` target for Python 3.13 + CUDA 12.8 + torch 2.9.1.
 - Added `py313-cu128-torch2100` target for Python 3.13 + CUDA 12.8 + torch 2.10.0.
 
 ## 2026-02-24
