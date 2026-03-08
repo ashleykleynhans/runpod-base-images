@@ -19,8 +19,9 @@ group "default" {
         "py311-cu124-torch260",
         "py312-cu124-torch260",
 
-        "py311-cu128-torch291",
-        "py312-cu128-torch291"
+        "py311-cu128-torch2100",
+        "py312-cu128-torch2100",
+        "py313-cu128-torch2100"
     ]
 }
 
