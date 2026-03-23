@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2026-03-23
+
+- Added `py311-cu128-torch2110` target for Python 3.11 + CUDA 12.8 + torch 2.11.0.
+- Added `py312-cu128-torch2110` target for Python 3.12 + CUDA 12.8 + torch 2.11.0.
+- Added `py313-cu128-torch2110` target for Python 3.13 + CUDA 12.8 + torch 2.11.0.
+
 ## 2026-03-21
 
 - Bump runpodctl to version v2.1.7.
