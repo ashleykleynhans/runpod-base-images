@@ -2,6 +2,7 @@
 
 ## 2026-03-25
 
+- Bump runpodctl to version v2.1.9.
 - Bump runpodctl to version v2.1.8.
 
 ## 2026-03-23

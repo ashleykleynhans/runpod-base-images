@@ -11,7 +11,7 @@ variable "RELEASE" {
 }
 
 variable "RUNPODCTL_VERSION" {
-    default = "v2.1.8"
+    default = "v2.1.9"
 }
 
 group "default" {
