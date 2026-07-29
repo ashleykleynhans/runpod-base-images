@@ -1,5 +1,16 @@
 # CHANGELOG
 
+## 2026-07-29
+
+- Added `py311-cu129-torch2130` target for Python 3.11 + CUDA 12.9 + torch 2.13.0.
+- Added `py312-cu129-torch2130` target for Python 3.12 + CUDA 12.9 + torch 2.13.0.
+- Added `py313-cu129-torch2130` target for Python 3.13 + CUDA 12.9 + torch 2.13.0.
+- Updated default build group to CUDA 12.9 torch 2.13.0.
+- Bumped docker/setup-buildx-action from v3 to v4.
+- Bumped docker/login-action from v3 to v4.
+- Bumped docker/bake-action from v6 to v7.
+- Added SBOM and build provenance attestation to CI workflow.
+
 ## 2026-06-18
 
 - Added `py311-cu129-torch2121` target for Python 3.11 + CUDA 12.9 + torch 2.12.1.
