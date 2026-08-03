@@ -42,5 +42,5 @@ wget "https://github.com/runpod/runpodctl/releases/download/${RUNPODCTL_VERSION}
 curl https://getcroc.schollz.com | bash
 
 # Install speedtest CLI
-curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
-    apt install -y speedtest
+# curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh | bash && \
+#     apt install -y speedtest

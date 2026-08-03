@@ -5,6 +5,7 @@
 - Fixed SSH authorized_keys permissions: replaced recursive `chmod 700 -R` on `~/.ssh`
   with `chmod 700` on the directory and `chmod 600` on the authorized_keys file.
   The execute bit on authorized_keys caused sshd to reject the key.
+- Removed ookla speedtest which returns HTTP 402 (Payment required).
 
 ## 2026-07-29
 
