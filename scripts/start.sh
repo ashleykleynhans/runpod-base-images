@@ -125,8 +125,11 @@ setup_ssh() {
     # Add SSH public key from environment variable to ~/.ssh/authorized_keys
     # if the PUBLIC_KEY environment variable is set
     if [[ ${PUBLIC_KEY} ]]; then
+        echo "SSH: PUBLIC_KEY found, writing authorized_keys"
         echo -e "${PUBLIC_KEY}\n" >> ~/.ssh/authorized_keys
         chmod 600 ~/.ssh/authorized_keys
+    else
+        echo "SSH: PUBLIC_KEY not set, skipping authorized_keys"
     fi
 
     # Generate SSH host keys if they don't exist
