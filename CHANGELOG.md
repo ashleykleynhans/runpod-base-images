@@ -1,5 +1,11 @@
 # CHANGELOG
 
+## 2026-08-03
+
+- Fixed SSH authorized_keys permissions: replaced recursive `chmod 700 -R` on `~/.ssh`
+  with `chmod 700` on the directory and `chmod 600` on the authorized_keys file.
+  The execute bit on authorized_keys caused sshd to reject the key.
+
 ## 2026-07-29
 
 - Added `py311-cu129-torch2130` target for Python 3.11 + CUDA 12.9 + torch 2.13.0.
