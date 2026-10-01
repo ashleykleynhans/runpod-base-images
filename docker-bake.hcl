@@ -7,11 +7,11 @@ variable "REGISTRY_USER" {
 }
 
 variable "RELEASE" {
-    default = "2.6.0"
+    default = "2.6.1"
 }
 
 variable "RUNPODCTL_VERSION" {
-    default = "v2.9.0"
+    default = "v2.14.0"
 }
 
 group "default" {
@@ -19,9 +19,10 @@ group "default" {
         "py311-cu124-torch260",
         "py312-cu124-torch260",
 
-        "py311-cu129-torch2130",
-        "py312-cu129-torch2130",
-        "py313-cu129-torch2130"
+        "py311-cu130-torch2141",
+        "py312-cu130-torch2141",
+        "py313-cu130-torch2141",
+        "py314-cu130-torch2141"
     ]
 }
 
@@ -59,7 +60,12 @@ group "all" {
 
         "py311-cu129-torch2130",
         "py312-cu129-torch2130",
-        "py313-cu129-torch2130"
+        "py313-cu129-torch2130",
+
+        "py311-cu130-torch2141",
+        "py312-cu130-torch2141",
+        "py313-cu130-torch2141",
+        "py314-cu130-torch2141"
     ]
 }
 
@@ -501,6 +507,70 @@ target "py313-cu129-torch2130" {
         RELEASE               = "${RELEASE}"
         INDEX_URL             = "https://download.pytorch.org/whl/cu129"
         TORCH_VERSION         = "2.13.0+cu129"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py311-cu130-torch2141" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.11-cuda13.0.3-torch2.14.1"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:13.0.3-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "13.0"
+        PYTHON_VERSION        = "3.11"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu130"
+        TORCH_VERSION         = "2.14.1+cu130"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py312-cu130-torch2141" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.12-cuda13.0.3-torch2.14.1"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:13.0.3-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "13.0"
+        PYTHON_VERSION        = "3.12"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu130"
+        TORCH_VERSION         = "2.14.1+cu130"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py313-cu130-torch2141" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.13-cuda13.0.3-torch2.14.1"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:13.0.3-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "13.0"
+        PYTHON_VERSION        = "3.13"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu130"
+        TORCH_VERSION         = "2.14.1+cu130"
+        RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
+    }
+    platforms = ["linux/amd64"]
+    annotations = ["org.opencontainers.image.authors=${REGISTRY_USER}"]
+}
+
+target "py314-cu130-torch2141" {
+    dockerfile = "./dockerfiles/without-xformers/Dockerfile"
+    tags = ["${REGISTRY}/${REGISTRY_USER}/runpod-base:${RELEASE}-python3.14-cuda13.0.3-torch2.14.1"]
+    args = {
+        BASE_IMAGE            = "nvidia/cuda:13.0.3-cudnn-devel-ubuntu22.04"
+        REQUIRED_CUDA_VERSION = "13.0"
+        PYTHON_VERSION        = "3.14"
+        RELEASE               = "${RELEASE}"
+        INDEX_URL             = "https://download.pytorch.org/whl/cu130"
+        TORCH_VERSION         = "2.14.1+cu130"
         RUNPODCTL_VERSION     = "${RUNPODCTL_VERSION}"
     }
     platforms = ["linux/amd64"]

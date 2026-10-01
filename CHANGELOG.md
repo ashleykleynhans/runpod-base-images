@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## 2026-10-01
+
+- Added `py311-cu130-torch2141` target for Python 3.11 + CUDA 13.0 + torch 2.14.1.
+- Added `py312-cu130-torch2141` target for Python 3.12 + CUDA 13.0 + torch 2.14.1.
+- Added `py313-cu130-torch2141` target for Python 3.13 + CUDA 13.0 + torch 2.14.1.
+- Added `py314-cu130-torch2141` target for Python 3.14 + CUDA 13.0 + torch 2.14.1.
+- Updated default build group to CUDA 13.0 torch 2.14.1.
+- Bumped actions/checkout from v4 to v7.
+
 ## 2026-08-03
 
 - Fixed SSH authorized_keys permissions: replaced recursive `chmod 700 -R` on `~/.ssh`
