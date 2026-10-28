@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## 2026-10-28
+
+- Added `py311-cu132-torch2150` target for Python 3.11 + CUDA 13.2 + torch 2.15.0.
+- Added `py312-cu132-torch2150` target for Python 3.12 + CUDA 13.2 + torch 2.15.0.
+- Added `py313-cu132-torch2150` target for Python 3.13 + CUDA 13.2 + torch 2.15.0.
+- Added `py314-cu132-torch2150` target for Python 3.14 + CUDA 13.2 + torch 2.15.0.
+- Added `py315-cu132-torch2150` target for Python 3.15 + CUDA 13.2 + torch 2.15.0.
+- Updated default build group to CUDA 13.2 torch 2.15.0.
+- Bump runpodctl to version v3.0.1.
+
 ## 2026-10-01
 
 - Added `py311-cu130-torch2141` target for Python 3.11 + CUDA 13.0 + torch 2.14.1.
